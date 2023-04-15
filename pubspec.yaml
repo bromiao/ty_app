@@ -8,6 +8,12 @@ environment:
 dependencies: 
   cupertino_icons: ^1.0.2
   get: 4.6.5
+  flutter_screenutil: ^5.5.4
+  flutter_swiper_view: ^1.1.8
+  dio: ^4.0.6
+  flutter_staggered_grid_view: ^0.6.2
+  shared_preferences: ^2.0.15
+  crypto: ^3.0.2
   flutter: 
     sdk: flutter
 
@@ -18,4 +24,13 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+  fonts:
+    - family: ityingIcon   #指定一个字体名 根据自己的需求定义
+      fonts:
+        - asset: assets/fonts/iconfont.ttf    
+    - family: userIcon   #指定一个字体名 根据自己的需求定义
+      fonts:
+        - asset: assets/fonts/userIconfont.ttf
+  assets:
+    - assets/images/xiaomiBanner.png
 
