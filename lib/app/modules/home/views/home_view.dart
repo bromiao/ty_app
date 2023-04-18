@@ -2,39 +2,84 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../services/screenAdapter.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
+
+  //内容区域
+  Widget _homePage() {
+    return Positioned(
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        child: ListView(
+          // controller: controller.scrollController,
+          children: [
+            _level_1(),
+            _banner(),
+            _wallet(),
+            _bulletin(),
+            _leftMatchMenu(),
+            _rightBallMenu(),
+          ],
+        ));
+  }
+
+  Widget _level_1() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SizedBox(width: ScreenAdapter.width(20),),
+        Text('首页'),
+        SizedBox(width: ScreenAdapter.width(20),),
+        Text('热门'),
+        SizedBox(width: ScreenAdapter.width(20),),
+        Text('视频直播'),
+      ],
+    );
+  }
+
+  Widget _banner() {
+    return SizedBox(
+     
+    );
+  }
+
+  Widget _wallet() {
+    return SizedBox(
+     
+    );
+  }
+
+  Widget _bulletin() {
+    return SizedBox(
+     
+    );
+  }
+
+  Widget _leftMatchMenu() {
+    return SizedBox(
+     
+    );
+  }
+
+  Widget _rightBallMenu() {
+    return SizedBox(
+     
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          body: PageView(
-            controller: controller.pageController,
-            physics: const NeverScrollableScrollPhysics(), //禁止左右滑动
-            children: controller.pages,
-            onPageChanged: (index) {
-              controller.setCurrentIndex(index);
-            },
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-              fixedColor: Colors.red, //选中的颜色
-              currentIndex: controller.currentIndex.value, //第几个菜单选中
-              type:
-                  BottomNavigationBarType.fixed, //如果底部有4个或者4个以上的菜单的时候就需要配置这个参数
-              onTap: (index) {
-                controller.setCurrentIndex(index);
-                controller.pageController.jumpToPage(index);
-              },
-              items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: "关注"),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.category), label: "注单"),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.room_service), label: "筛选"),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.shopping_cart), label: "刷新"),
-              ]),
-        );
+      body: Stack(
+        children: [
+          _homePage()
+        ],
+      ),
+    );
   }
 }
