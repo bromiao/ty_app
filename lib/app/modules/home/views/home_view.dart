@@ -32,53 +32,92 @@ class HomeView extends GetView<HomeController> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(width: ScreenAdapter.width(20),),
+        SizedBox(
+          width: ScreenAdapter.width(20),
+        ),
         Text('首页'),
-        SizedBox(width: ScreenAdapter.width(20),),
+        SizedBox(
+          width: ScreenAdapter.width(20),
+        ),
         Text('热门'),
-        SizedBox(width: ScreenAdapter.width(20),),
+        SizedBox(
+          width: ScreenAdapter.width(20),
+        ),
         Text('视频直播'),
       ],
     );
   }
 
   Widget _banner() {
-    return SizedBox(
-     
+    return Container(
+      margin: EdgeInsets.symmetric(
+          vertical: ScreenAdapter.height(15),
+          horizontal: ScreenAdapter.height(10)),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(ScreenAdapter.width(20)),
+          color: Colors.red,
+          image: const DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage("assets/images/home/banner_001.png"))),
+      height: ScreenAdapter.height(160),
     );
   }
 
   Widget _wallet() {
-    return SizedBox(
-     
+    return Container(
+      padding: EdgeInsets.only(left: ScreenAdapter.width(10)),
+      child: Column(
+        children: [
+          Container(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(Icons.wallet),
+                SizedBox(width: ScreenAdapter.width(5)),
+                Text('余额')
+              ],
+            ),
+          ),
+          Container(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  '59385',
+                  style: TextStyle(
+                      fontSize: ScreenAdapter.fontSize(18),
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '.54',
+                  style: TextStyle(
+                      fontSize: ScreenAdapter.fontSize(16)),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 
   Widget _bulletin() {
-    return SizedBox(
-     
-    );
+    return SizedBox();
   }
 
   Widget _leftMatchMenu() {
-    return SizedBox(
-     
-    );
+    return SizedBox();
   }
 
   Widget _rightBallMenu() {
-    return SizedBox(
-     
-    );
+    return SizedBox();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
-          _homePage()
-        ],
+        children: [_homePage()],
       ),
     );
   }
